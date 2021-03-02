@@ -1,0 +1,13 @@
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+RUN npm install
+
+COPY . .
+# line 8 can be ommited as we are using the concept of volumes to add in files and folders into the WORKDIR
+# However, we use docker-compose to do that.
+# If in the future you do not make use of docker-compose, you will need line 8
+
+CMD [ "npm","run","start" ]

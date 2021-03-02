@@ -1,0 +1,21 @@
+version : '3'
+
+# Here's what we want you to do
+# service is similar to a container
+# service is a type of container
+# Here, we define 2 types of containers
+# Therefore, we have 2 services
+
+services:
+  # Create a container named "redis-server" using the image "redis"
+  redis-server:
+    image: 'redis'
+
+  node-app:
+    # Look for a Dockerfile in the current directory and use that to build an container
+    restart: always
+    build: .
+    ports:
+      # "local Machine port : container port"
+      - "4001:8081"
+  
